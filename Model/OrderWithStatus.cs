@@ -14,7 +14,7 @@ namespace BlazingPizza
 
         public bool IsDelivered => StatusText == "Delivered";
 
-        public static OrderWithStatus FromOrder(Order order)
+        public static OrderWithStatus FromOrder(Order order) 
         {
             // To simulate a real backend process, we fake status updates based on the amount
             // of time since the order was placed
