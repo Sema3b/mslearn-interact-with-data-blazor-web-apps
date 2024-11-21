@@ -6,7 +6,7 @@ namespace BlazingPizza.Controllers;
 
 [Route("specials")]
 [ApiController]
-public class SpecialsControllers :Controller
+public class SpecialsControllers : Controller
 {
     private readonly PizzaStoreContext _db;
 
@@ -18,6 +18,6 @@ public class SpecialsControllers :Controller
     [HttpGet]
     public async Task<ActionResult<List<PizzaSpecial>>> GetSpecials()
     {
-        return (await _db.Specials.ToListAsync()).OrderByDescending(s=> s.BasePrice).ToList();
+        return (await _db.Specials.ToListAsync()).OrderByDescending(s => s.BasePrice).ToList();
     }
 }

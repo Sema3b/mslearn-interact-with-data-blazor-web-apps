@@ -1,6 +1,6 @@
 ﻿<Router AppAssembly="@typeof(Program).Assembly" PreferExactMatches="@true">@*prueft Components, ob das RouteAttribut vorhanden ist*@ 
     <Found Context="routeData"> @*Wenn Komponent das RouteAttribut besitzt z.B. /home, verarbeitet Routing zu Laufzeit*@
-        <RouteView RouteData="@routeData" />@*RouteDate Objekt, das angibt, wie Anforderungen an Components weitergeleiten wird, die das Route Objekt und alle Parameter in der URI haben*@
+        <RouteView RouteData="@routeData" DefaultLayout="typeof(MainLayout)" />@*RouteDate Objekt, das angibt, wie Anforderungen an Components weitergeleiten wird, die das Route Objekt und alle Parameter in der URI haben*@
     </Found> @*Komponent + Layout wird gerendert*@
     <NotFound>@*Wenn angegebenes RouteAttribut nicht in einem Komponent zu finden ist Z.B. /hallo ist keine gueltige Route*@
         <LayoutView>
