@@ -5,7 +5,7 @@
 @inject HttpClient HttpClient
 @inject NavigationManager NavigationManager
 
-@implements IDisposable
+@implements IDisposable 
 
 <div class="main">
     <EditForm EditContext=editContext OnValidSubmit=PlaceOrder>
@@ -28,7 +28,7 @@
         <button class="checkout-button btn btn-warning" type="Submit" disabled=@isError>
             Place order
         </button>
-        <DataAnnotationsValidator />
+        <DataAnnotationsValidator /> @* for error messages *@
     </EditForm>
 </div>
 
@@ -48,6 +48,7 @@
         isError = !editContext.Validate();
         StateHasChanged();
     }
+
     public void Dispose()
     {
         editContext.OnFieldChanged -= HandleFieldChanged;
