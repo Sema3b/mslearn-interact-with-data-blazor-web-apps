@@ -24,10 +24,10 @@ namespace BlazingPizza
 
         public List<PizzaTopping> Toppings { get; set; }
 
-        public decimal GetBasePrice()
-        {
-            return ((decimal)Size / (decimal)DefaultSize) * Special.BasePrice;
-        }
+        public decimal GetBasePrice() =>
+            Special is {FixedSize: not null } //checks if Special objects exists and if FixedSize in Special is not null
+            ? Special.BasePrice 
+            : (decimal)Size / DefaultSize * Special?.BasePrice ?? 1; //If Special object exists the BasePrice will be used, otherwise is 1 default value
 
         public decimal GetTotalPrice()
         {
