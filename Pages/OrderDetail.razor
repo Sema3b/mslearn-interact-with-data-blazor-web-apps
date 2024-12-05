@@ -79,10 +79,10 @@
 @code {
     [Parameter] public int OrderId { get; set; }
 
-    bool IsOrderIncomplete =>
-    orderWithStatus is null || orderWithStatus.IsDelivered == false;
+    bool IsOrderIncomplete => //returns true if conditions are fulfilled
+    orderWithStatus is null || orderWithStatus.IsDelivered == false; //conditions: Order doesnt exists or order exists but is not delievered yet
 
-    PeriodicTimer timer = new(TimeSpan.FromSeconds(3));
+    PeriodicTimer timer = new(TimeSpan.FromSeconds(3));//timer ticks all 3 seconds
 
     OrderWithStatus orderWithStatus;
     bool invalidOrder = false;

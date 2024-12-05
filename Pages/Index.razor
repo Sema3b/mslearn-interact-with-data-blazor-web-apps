@@ -31,9 +31,10 @@
 
 @if (OrderState.ShowingConfigureDialog)
 {
-    <ConfigurePizzaDialog Pizza="OrderState.ConfiguringPizza"
-    OnCancel="OrderState.CancelConfigurePizzaDialog"
-    OnConfirm="OrderState.ConfirmConfigurePizzaDialog" />
+    <ConfigurePizzaDialog 
+        Pizza="OrderState.ConfiguringPizza"
+        OnCancel="OrderState.CancelConfigurePizzaDialog"
+        OnConfirm="OrderState.ConfirmConfigurePizzaDialog" />
 }
 
 <div class="sidebar">
@@ -97,7 +98,7 @@
             dangerMode = true
         };
 
-        if (await JavaScript.InvokeAsync<bool>("swal", messageParams)) //swall is a function of sweetalert.js reference, is similiar to "confirm" function that waits for value
+        if (await JavaScript.InvokeAsync<bool>("swal", messageParams)) //swal is a function of sweetalert.js reference, is similiar to "confirm" function that waits for value
         {
             OrderState.RemoveConfiguredPizza(removePizza);
         }
